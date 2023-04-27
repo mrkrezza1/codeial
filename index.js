@@ -28,6 +28,7 @@ const express=require('express')
 const port=7000;
 const app=express();
 const expressLayouts=require('express-ejs-layouts')//it is used to bring the common layouts
+const db=require('./config/mongoose');//here we are importing the data from the server
 app.use(express.static('./assets'))//it is use to acces the static files
 app.use(expressLayouts)//here it used to use the common library
 app.use('/',require('./routes'))//it is denoting that which folder has to access first
