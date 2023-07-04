@@ -1,0 +1,20 @@
+.main-comment{width: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+.user{
+    color: chartreuse;
+    font-style: italic;
+    font-size: .8em;
+    border-bottom: 2px solid white;
+    }
+.delete{
+    background-color: green;
+    font-size: .5em;
+}
+.delete:hover{
+    background-color: red;
+    border: burlywood;
+    color: black;
+    }

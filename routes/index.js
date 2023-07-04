@@ -4,7 +4,9 @@ const homeController=require('../controllers/home_controller')//here we are tryi
 console.log("router is loaded")//
 router.get('/',homeController.home);
 router.use('/users',require('./users'))
-router.use('/family',require('./family'))
+router.use('/posts',require('./posts'))
+router.use('/comments',require('./comments'))
+
 // further for any othere router use then we use
 // router.use("router name",require(router file))
 module.exports=router;

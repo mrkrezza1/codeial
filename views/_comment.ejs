@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/css/comment.css">
+<li>
+    <p class="main-comment">
+        <%if(locals.user && locals.user.id==comment.user.id){%>
+                <a class="delete" href="/comments/destroy/<%= comment.id %>">X</a>
+           
+            <%}%>
+
+                <p>
+                    <%=comment.content%>
+                </p>
+                <small class="user">
+                    <%=comment.user.name%>
+                </small>
+    </p>
+</li>
