@@ -35,6 +35,7 @@ const storage = multer.diskStorage({
     }
   })
 
+//   using of statics methods
 userSchema.statics.uploadedAvatar=multer({storage:storage}).single('avatar');
 userSchema.statics.avatarPath=AVATAR_PATH;
 
