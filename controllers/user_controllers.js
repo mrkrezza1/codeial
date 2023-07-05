@@ -17,17 +17,32 @@ module.exports.profile =async function(req, res){
 }
 // updating the users email and name
 module.exports.update=async function(req,res){
+    if(req.user.id==req.params.id){
     try {
-         if(req.user.id==req.params.id){
-let user=await User.findByIdAndUpdate(req.params.id,req.body)
-            return res.redirect('back');
-        }else{
-            return res.status(401).send("unauthorized")
-        }
+        let user=await User.findById(req.params.id,req.body)
+        User.uploadedAvatar(req,res,function(err){
+            if(err){
+                console.log("multer error",err)
+            }
+            user.name=req.body.name;
+            user.email=req.body.email;
+            if(req.file){
+                user.avatar=User.avatarPath+"/"+req.file.filename;
+            }
+            user.save();
+            console.log(req.file)
+            return res.redirect('back')
+        })
     } catch (error) {
-        console.log("error in updating")
+        req.flash("error",err)
+        // console.log("error in updating")
+        return res.redirect('back');
     }
-
+        
+    }else{
+        req.flash("error",'unauthorized')
+        return res.status(401).send("unauthorized")
+    }
 }
 
 // rendering the sign up page
