@@ -10,9 +10,11 @@
             <!-- here we have laern the partial formate -->
             <!-- here we are just trying to include another page by  include functionality of the ejs -->
             <!-- <%-include('_header');%> -->
-            <link rel="stylesheet" href="/css/user.css">
+            <link rel="stylesheet" width="200px" href="/css/user.css">
         <h1> users page/ <%=title%></h1>
         <!-- <%-include('_footer');%> -->
+        <!-- here we are trying to upload a profile pic or avatar -->
+        <img src="<%=user.avatar%>" alt="<%=user.name%>">
         <%if(user.id==profile_user.id){%>
             <!-- if the user matches then open the form -->
             <form action="/users/update/<%= profile_user.id%>" method="post" enctype="multipart/form-data">
