@@ -36,6 +36,10 @@ app.use(expressLayouts)//here it used to use the common library
 
 
 app.use(express.static('./assets'))//it is use to acces the static files
+
+// make the uploads path available to the browser
+app.use('/uploads',express.static(__dirname + '/uploads'))
+
 // extract the styles and scripts from subpages into the layout
 app.set('layout extractStyles', true)
 app.set('layout extractScripts', true)
