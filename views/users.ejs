@@ -7,28 +7,31 @@
             <title><%=title%></title>
         </head>
         <body> -->
-            <!-- here we have laern the partial formate -->
-            <!-- here we are just trying to include another page by  include functionality of the ejs -->
-            <!-- <%-include('_header');%> -->
-            <link rel="stylesheet" width="200px" href="/css/user.css">
-        <h1> users page/ <%=title%></h1>
-        <!-- <%-include('_footer');%> -->
-        <!-- here we are trying to upload a profile pic or avatar -->
-        <img src="<%=user.avatar%>" alt="<%=user.name%>">
-        <%if(user.id==profile_user.id){%>
-            <!-- if the user matches then open the form -->
-            <form action="/users/update/<%= profile_user.id%>" method="post" enctype="multipart/form-data">
-                <input type="text" name="name" required value="<%= profile_user.name %>" placeholder="your name">
-                <input type="email" name="email" required  value="<%= profile_user.email %>" placeholder="your email">
-                <input type="file" name="avatar" placeholder="profile picture" id="">
-                <input type="submit" value="update">
-            </form>
-            <%}else{%>
-                <!-- only show the profile info -->
-                <p>name: <%= profile_user.name%></p>        
-                <p>name: <%= profile_user.email%></p>       
-            <%}%>
-         
-        
-<!-- </body>
-</html> -->
+<!-- here we have laern the partial formate -->
+<!-- here we are just trying to include another page by  include functionality of the ejs -->
+<!-- <%-include('_header');%> -->
+<link rel="stylesheet" href="/css/user.css">
+<h1> users page/ <%=title%></h1>
+
+<!-- here we are trying to upload a profile pic or avatar -->
+<img src="<%=user.avatar%>" width="100px" alt="<%=user.name%>">
+<%if(user.id==profile_user.id){%>
+    <!-- if the user matches then open the form -->
+    <form action="/users/update/<%= profile_user.id%>" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" required value="<%= profile_user.name %>" placeholder="your name">
+        <input type="email" name="email" required value="<%= profile_user.email %>" placeholder="your email">
+        <input type="file" name="avatar" placeholder="profile picture" id="">
+        <input type="submit" value="update">
+    </form>
+    <%}else{%>
+        <!-- only show the profile info -->
+        <p>name: <%= profile_user.name%>
+        </p>
+        <p>name: <%= profile_user.email%>
+        </p>
+        <%}%>
+
+
+        <%-include('_footer');%>
+        <!-- </body>
+                </html> -->
