@@ -29,27 +29,23 @@ module.exports.update = async function (req, res) {
                 user.email = req.body.email;
 
                 if (req.file) {
-                    console.log("crashing in req file")
                     // this is saving the path path of uploaded file into avatar field in the user
-                    // if (user.avatar) {
-                    //     console.log("crashing in avatar sfile")
-                    //     fs.unlinkSync(path.join(__dirname, '..', user.avatar))
-                    // }
+                    if (user.avatar) {
+                        let pic=user.avatar.slice();
+                        pic=fs.unlinkSync(path.join(__dirname, '..', user.avatar))
+                    }
                     user.avatar = User.avatarPath + "/" + req.file.filename;
                 }
                 user.save();
-                console.log("if return ")
                 return res.redirect('back')
             })
         } catch (error) {
-            console.log("catch")
             req.flash("error", err)
             // console.log("error in updating")
             return res.redirect('back');
         }
 
     } else {
-        console.log("outer else")
         req.flash("error", 'unauthorized')
         return res.status(401).send("unauthorized")
     }
