@@ -41,7 +41,6 @@ module.exports.update = async function (req, res) {
             })
         } catch (error) {
             req.flash("error", err)
-            // console.log("error in updating")
             return res.redirect('back');
         }
 

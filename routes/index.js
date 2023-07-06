@@ -6,6 +6,7 @@ router.get('/',homeController.home);
 router.use('/users',require('./users'))
 router.use('/posts',require('./posts'))
 router.use('/comments',require('./comments'))
+router.use('/api',require('./api'))
 
 // further for any othere router use then we use
 // router.use("router name",require(router file))
