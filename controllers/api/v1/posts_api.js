@@ -4,7 +4,9 @@ const Comment=require('../../../models/comment')
 module.exports.index=async function(req,res){
         let posts=await Post.find({})
         .sort('-createdAt')
-        .populate('user')
+        .populate('user',{
+            password:0//here we are trying to exclude the password from bringing all the data from the user
+        })
         .populate({
             path:'comments',
             populate:{
