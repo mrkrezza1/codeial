@@ -49,9 +49,10 @@ app.set('views', ('./views'))//which folder ejs has to show through its engine
 
 // mongo store is used to keep cookie in the db
 
-
+// used for the session cookies
 const passport = require('passport')
 const passportLocal = require('./config/passport-local-strategy')
+const passportJWT=require('./config/passport-jwt-strategy')
 
 app.use(passport.initialize());
 
